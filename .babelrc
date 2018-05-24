@@ -1,0 +1,16 @@
+{
+    // used for jest only. see rollup.config.js for the rollup babel config
+
+    "presets": [
+        [
+            "env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "flow"
+    ],
+    "plugins": []
+}

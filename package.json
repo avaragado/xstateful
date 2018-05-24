@@ -1,0 +1,71 @@
+{
+    "name": "@avaragado/xstate-runner",
+    "version": "0.1.0",
+    "description": "::TODO::",
+    "keywords": ["::TODO::"],
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "browser": "dist/index.umd.js",
+    "files": ["dist"],
+    "homepage": "https://github.com/avaragado/xstate-runner#readme",
+    "repository": "avaragado/xstate-runner",
+    "bugs": "https://github.com/avaragado/xstate-runner/issues",
+    "author": {
+        "name": "David Smith",
+        "email": "xstate-runner@avaragado.org",
+        "url": "https://avaragado.org"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "babel-core": "6",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-flow": "^6.23.0",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-flowtype": "^2.46.3",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-jest": "^21.15.1",
+        "eslint-plugin-jsx-a11y": "^6.0.3",
+        "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-react": "^7.8.2",
+        "flow-bin": "^0.72.0",
+        "flow-typed": "^2.4.0",
+        "husky": "^0.14.3",
+        "jest": "^22.4.4",
+        "lint-staged": "^7.1.1",
+        "prettier": "^1.12.1",
+        "rimraf": "^2.6.2",
+        "rollup": "^0.59.1",
+        "rollup-plugin-babel": "^3.0.4",
+        "rollup-plugin-commonjs": "^9.1.3",
+        "rollup-plugin-node-resolve": "^3.0.0",
+        "standard-version": "^4.4.0"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "dev": "rollup -c -w",
+        "eslint": "eslint src",
+        "flow": "flow",
+        "flow-typed": "flow-typed update --skip",
+        "pretest": "yarn build",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage":
+            "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx}",
+        "prebuild": "yarn clean",
+        "build": "rollup -c",
+        "precommit": "lint-staged",
+        "release": "standard-version",
+        "release:dryrun": "standard-version --dry-run"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "lint-staged": {
+        "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
+    }
+}

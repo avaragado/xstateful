@@ -1,0 +1,4 @@
+flow-typed/*
+dist/*
+flow-coverage/*
+coverage/*

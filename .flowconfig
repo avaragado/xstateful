@@ -1,0 +1,19 @@
+# for third-party modules that use flow, you need to let flow do its thing:
+# so you shouldn't ignore the entirety of node_modules.
+# however, you might have to adjust the [ignore] etc sections HERE
+# to account for what those modules need. for example, if a module
+# uses a magic marker to ignore certain flow errors, you need to include
+# that magic string HERE too.
+[ignore]
+<PROJECT_ROOT>/dist/.*
+
+[include]
+
+[libs]
+flow-typed/
+
+[lints]
+
+[options]
+
+[strict]
