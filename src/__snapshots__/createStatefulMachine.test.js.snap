@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createStatefulMachine cannot pass an xstate config as machine 1`] = `"You must pass an instantiated xstate machine to createStatefulMachine"`;
+
+exports[`createStatefulMachine cannot pass nothing 1`] = `"You must pass an instantiated xstate machine to createStatefulMachine"`;
+
+exports[`createStatefulMachine must pass a machine key 1`] = `"You must pass an instantiated xstate machine to createStatefulMachine"`;

@@ -1,5 +1,5 @@
-// flow-typed signature: 5f6b80ba0fa4571aac1e7ea6e5fea425
-// flow-typed version: f4a7859cd3/jest_v22.x.x/flow_>=v0.39.x
+// flow-typed signature: bc9e644ba43fa1c4d1fccc5fd47f65e9
+// flow-typed version: d37e775f89/jest_v23.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -483,7 +483,7 @@ type JestExtendedMatchersType = {
     toIncludeMultiple(substring: string[]): void;
 };
 
-type JestExpectType = {
+interface JestExpectType {
   not: JestExpectType & EnzymeMatchersType & DomTestingLibraryType & JestJQueryMatchersType & JestExtendedMatchersType,
   /**
    * If you have a mock function, you can use .lastCalledWith to test what
@@ -495,10 +495,6 @@ type JestExpectType = {
    * strict equality.
    */
   toBe(value: any): void,
-  /**
-   * Use .toHaveBeenCalled to ensure that a mock function got called.
-   */
-  toBeCalled(): void,
   /**
    * Use .toBeCalledWith to ensure that a mock function was called with
    * specific arguments.
@@ -574,21 +570,55 @@ type JestExpectType = {
    * Use .toHaveBeenCalled to ensure that a mock function got called.
    */
   toHaveBeenCalled(): void,
+  toBeCalled(): void;
   /**
    * Use .toHaveBeenCalledTimes to ensure that a mock function got called exact
    * number of times.
    */
   toHaveBeenCalledTimes(number: number): void,
+  toBeCalledTimes(number: number): void;
+  /**
+   *
+   */
+  toHaveBeenNthCalledWith(nthCall: number, ...args: Array<any>): void;
+  nthCalledWith(nthCall: number, ...args: Array<any>): void;
+  /**
+   *
+   */
+  toHaveReturned(): void;
+  toReturn(): void;
+  /**
+   *
+   */
+  toHaveReturnedTimes(number: number): void;
+  toReturnTimes(number: number): void;
+  /**
+   *
+   */
+  toHaveReturnedWith(value: any): void;
+  toReturnWith(value: any): void;
+  /**
+   *
+   */
+  toHaveLastReturnedWith(value: any): void;
+  lastReturnedWith(value: any): void;
+  /**
+   *
+   */
+  toHaveNthReturnedWith(nthCall: number, value: any): void;
+  nthReturnedWith(nthCall: number, value: any): void;
   /**
    * Use .toHaveBeenCalledWith to ensure that a mock function was called with
    * specific arguments.
    */
   toHaveBeenCalledWith(...args: Array<any>): void,
+  toBeCalledWith(...args: Array<any>): void,
   /**
    * Use .toHaveBeenLastCalledWith to ensure that a mock function was last called
    * with specific arguments.
    */
   toHaveBeenLastCalledWith(...args: Array<any>): void,
+  lastCalledWith(...args: Array<any>): void,
   /**
    * Check that an object has a .length property and it is set to a certain
    * numeric value.
@@ -607,9 +637,13 @@ type JestExpectType = {
    */
   toMatchObject(object: Object | Array<Object>): void,
   /**
-   * This ensures that a React component matches the most recent snapshot.
+   * This ensures that an Object matches the most recent snapshot.
    */
-  toMatchSnapshot(name?: string): void,
+  toMatchSnapshot(propertyMatchers?: {[key: string]: JestAsymmetricEqualityType}, name?: string): void,
+  /**
+   * This ensures that an Object matches the most recent snapshot.
+   */
+  toMatchSnapshot(name: string): void,
   /**
    * Use .toThrow to test that a function throws when it is called.
    * If you want to test that a specific error gets thrown, you can provide an
@@ -625,7 +659,7 @@ type JestExpectType = {
    * matching the most recent snapshot when it is called.
    */
   toThrowErrorMatchingSnapshot(): void
-};
+}
 
 type JestObjectType = {
   /**

@@ -5,7 +5,6 @@
 # uses a magic marker to ignore certain flow errors, you need to include
 # that magic string HERE too.
 [ignore]
-<PROJECT_ROOT>/dist/.*
 
 [include]
 
