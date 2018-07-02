@@ -1,7 +1,5 @@
 // @flow
 
-import { StateNode } from 'xstate';
-
 import type { CreateStatefulMachine } from './types';
 
 import XStateful from './XStateful';
@@ -21,7 +19,11 @@ const createStatefulMachine: CreateStatefulMachine = arg => {
         ...arg,
     };
 
-    if (!(machine instanceof StateNode)) {
+    if (
+        !machine ||
+        !machine.transition ||
+        typeof machine.transition !== 'function'
+    ) {
         throw new Error(
             'You must pass an instantiated xstate machine to createStatefulMachine',
         );

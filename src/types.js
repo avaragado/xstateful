@@ -3,7 +3,6 @@
 import type { State as _State, StateNode } from 'xstate';
 
 import typeof { TYPE_REDUCER_RESULT } from './constants';
-import type XStateful from './XStateful';
 
 // xstate
 
@@ -38,7 +37,16 @@ export type ReducerArg = {
     action: ActionObject,
 };
 
-export type Effect = (XStateful, ReducerArg) => void | Promise<void>;
+export interface XStatefullable {
+    state: State;
+    extstate: ExtState;
+
+    init(): void;
+    transition(event: Event): void;
+    setExtState(updater: ?ExtState | ((xs: ExtState) => ?ExtState)): void;
+}
+
+export type Effect = (XStatefullable, ReducerArg) => void | Promise<void>;
 export type ClosedEffect = () => void | Promise<void>;
 
 export type ReducerResult = {|
@@ -61,4 +69,4 @@ type CreatorSpec = {|
     extstate?: ExtState,
 |};
 
-export type CreateStatefulMachine = CreatorSpec => XStateful;
+export type CreateStatefulMachine = CreatorSpec => XStatefullable;

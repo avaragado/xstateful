@@ -3,17 +3,24 @@
 import Emitter from 'tiny-emitter';
 import { StateNode, actions } from 'xstate';
 
-import type { ExtState, State, Event, EventObject } from './types';
+import type {
+    XStatefullable,
+    ExtState,
+    State,
+    Event,
+    EventObject,
+} from './types';
 
 type Constructor = {|
     machine: StateNode,
     extstate: ExtState,
 |};
 
-class XStateful extends Emitter {
+class XStateful extends Emitter implements XStatefullable {
     machine: StateNode;
 
     state: State;
+
     extstate: ExtState;
 
     pvt: {
