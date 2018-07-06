@@ -93,6 +93,11 @@
             "git add"
         ]
     },
+    "standard-version": {
+        "scripts": {
+            "postchangelog": "prettier --write CHANGELOG.md"
+        }
+    },
     "peerDependencies": {
         "xstate": "^3.0.0"
     }
