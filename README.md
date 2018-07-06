@@ -1303,7 +1303,7 @@ When ready to release to npm:
 1.  `git checkout master`
 1.  `git pull origin master`
 1.  `yarn release:dryrun`
-1.  `yarn release --first-release` on first release, drop the flag thereafter
+1.  `yarn release`
 1.  Engage pre-publication paranoia
 1.  `git push --follow-tags origin master`
 1.  `npm publish` - not yarn here as yarn doesn't seem to respect publishConfig
