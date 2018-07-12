@@ -27,6 +27,8 @@ The `createStatefulMachine` export adds a reducer framework for handling actions
 
 Other packages offer these features too, but closely coupled to specific libraries such as Redux or React. If your app needs both to connect `xstate` machines to Redux, and to use simpler machines in a React UI that don't need to use Redux, you might end up using multiple different approaches simultaneously: more cognitive load and bigger bundles. `xstateful` simply wraps `xstate` in an instance of an `XStateful` class that adds extended state and event emitting, and provides a clean way to update extended state and perform side-effects based on machine actions and activities.
 
+(To use `xstateful` with React, see [`@avaragado/xstateful-react`](https://github.com/avaragado/xstateful-react).)
+
 ## Terminology
 
 Most terminology is as used in `xstate`, often qualified to try to reduce ambiguity. These are terms like _action_, _activity_, _machine_, _(machine) event_, _(machine) state_, _extended state_ and _transition_.
@@ -55,7 +57,7 @@ In summary:
 
 (You can use `xstateful` without the reducer extras: in this case, add `action` event listeners to process emitted actions and activities however you'd like.)
 
-We'll introduce `xstateful`'s features using simple, working examples (we assume you're already familiar with `xstate`).
+We'll introduce `xstateful`'s features using simple, working examples (we assume you're already familiar with `xstate`). You can run these examples online at https://codesandbox.io/s/mzwl9202q9.
 
 ### Example 1: up-down
 
