@@ -1,0 +1,24 @@
+{
+  "projectName": "xstateful",
+  "projectOwner": "avaragado",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "avaragado",
+      "name": "David Smith",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/886041?v=4",
+      "profile": "http://avaragado.org",
+      "contributions": [
+        "doc",
+        "code",
+        "test"
+      ]
+    }
+  ]
+}
